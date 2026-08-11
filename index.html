@@ -3,159 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliana’s Space // Lagos Dreams</title>
+    <title>Godstime Best Scrap Dealer // Lagos, Nigeria</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css25?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #07050a; color: #f3f0ff; }
-        .serif { font-family: 'Playfair Display', serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .glass:hover { border-color: rgba(255, 255, 255, 0.2); }
-        .glow-bg {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 110, 80, 0.15) 0%, rgba(121, 40, 202, 0.05) 50%, transparent 70%);
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: -1;
+        :root {
+            --bg-deep: #0B0B0A;
+            --charcoal: #171715;
+            --ivory: #E9E4DA;
+            --industrial-grey: #77746C;
+            --copper: #A66A32;
+            --forest: #354338;
         }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-deep); color: var(--ivory); }
+        .serif { font-family: 'Playfair Display', serif; }
+        .ivory-bg { background-color: var(--ivory); color: var(--bg-deep); }
+        .charcoal-bg { background-color: var(--charcoal); }
+        .copper-text { color: var(--copper); }
+        .copper-border { border-color: var(--copper); }
+        .glass-dark { background: rgba(23, 23, 21, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(233, 228, 218, 0.08); }
+        .image-zoom { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .group:hover .image-zoom { transform: scale(1.05); }
     </style>
 </head>
-<body class="selection:bg-pink-500 selection:text-white relative overflow-x-hidden">
-
-    <!-- Atmospheric Glows -->
-    <div class="glow-bg top-[-100px] left-[-200px]"></div>
-    <div class="glow-bg top-[40%] right-[-200px]" style="background: radial-gradient(circle, rgba(110, 40, 202, 0.2) 0%, transparent 70%);"></div>
+<body class="selection:bg-[#A66A32] selection:text-white relative overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#07050a]/70 backdrop-blur-xl border-b border-white/5">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0B0B0A]/80 backdrop-blur-xl border-b border-white/5 transition-all duration-500" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <span class="serif text-xl tracking-widest text-white uppercase">Eliana's Space</span>
-            <div class="hidden md:flex items-center gap-10 text-xs tracking-widest uppercase text-neutral-400 font-medium">
-                <a href="#vision" class="hover:text-white transition">Vision</a>
-                <a href="#gallery" class="hover:text-white transition">Sanctuary</a>
-                <a href="#manifesto" class="hover:text-white transition">Manifesto</a>
+            <a href="#" class="serif text-xl tracking-widest uppercase font-bold">Godstime</a>
+            
+            <div class="hidden md:flex items-center gap-10 text-xs tracking-widest uppercase text-[#77746C] font-medium">
+                <a href="#about" class="hover:text-[#E9E4DA] transition">About</a>
+                <a href="#materials" class="hover:text-[#E9E4DA] transition">What We Buy</a>
+                <a href="#process" class="hover:text-[#E9E4DA] transition">Process</a>
+                <a href="#contact" class="hover:text-[#E9E4DA] transition">Contact</a>
             </div>
-            <a href="#connect" class="bg-white text-black text-xs uppercase tracking-widest font-semibold px-6 py-3 rounded-full hover:bg-pink-500 hover:text-white transition duration-500">Enter Dream</a>
+
+            <a href="https://wa.me/2348023571753" target="_blank" class="bg-[#E9E4DA] text-[#0B0B0A] text-xs uppercase tracking-widest font-semibold px-6 py-3 rounded-full hover:bg-[#A66A32] hover:text-white transition duration-500">
+                Sell Your Scrap →
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="pt-48 pb-24 md:pt-64 md:pb-32 px-6 max-w-7xl mx-auto">
-        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-xs tracking-widest uppercase text-pink-300 font-medium mb-8">
-            <span class="w-1.5 h-1.5 rounded-full bg-pink-500 animate-ping"></span> Lagos • Nocturnal Realism
+    <!-- HERO -->
+    <header class="relative min-h-screen flex flex-col justify-between pt-32 pb-16 px-6 max-w-7xl mx-auto">
+        <!-- Background Cinematic Image with Grain -->
+        <div class="absolute inset-0 -z-10 overflow-hidden rounded-3xl mt-24 mb-6">
+            <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover opacity-40 contrast-125" alt="Industrial Scrap Yard Lagos">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0A] via-[#0B0B0A]/50 to-transparent"></div>
         </div>
-        <h1 class="serif text-5xl md:text-8xl lg:text-9xl tracking-tight max-w-6xl leading-[0.95] mb-12">
-            Where <span class="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-pink-400 to-purple-500">Lagos Dreams</span> Take Infinite Form.
-        </h1>
-        <p class="text-lg md:text-2xl text-neutral-400 max-w-2xl font-light leading-relaxed mb-16">
-            An immersive digital sanctuary exploring art, Atlantic energy, and the electric pulse of nocturnal Lagos through a cosmic lens.
-        </p>
 
-        <!-- Hero Image Grid / Showcase -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-[600px]">
-            <div class="md:col-span-2 rounded-3xl overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Lagos Night">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
-                    <div>
-                        <span class="text-xs uppercase tracking-widest text-pink-400 font-medium">Exhibit 01</span>
-                        <h3 class="serif text-2xl text-white">Midnight Atlantic Breeze</h3>
-                    </div>
-                </div>
+        <div>
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-dark text-xs tracking-widest uppercase text-[#77746C] font-medium mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#A66A32] animate-ping"></span> Lagos, Nigeria • Scrap Metal Buying & Recycling
             </div>
-            <div class="rounded-3xl overflow-hidden relative group hidden md:block">
-                <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Cosmic Art">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
-                    <div>
-                        <span class="text-xs uppercase tracking-widest text-orange-400 font-medium">Exhibit 02</span>
-                        <h3 class="serif text-2xl text-white">Neon Realities</h3>
-                    </div>
-                </div>
+            
+            <h1 class="serif text-6xl md:text-9xl tracking-tight max-w-5xl leading-[0.95] mb-12">
+                TURN<br><span class="italic font-normal copper-text">SCRAP</span><br>INTO VALUE.
+            </h1>
+
+            <p class="text-lg md:text-xl text-[#77746C] max-w-xl font-light leading-relaxed mb-12">
+                We buy recyclable metal from individuals, businesses and industrial operators across Lagos.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="https://wa.me/2348023571753" target="_blank" class="bg-[#E9E4DA] text-[#0B0B0A] text-xs uppercase tracking-widest font-bold px-8 py-4 rounded-full hover:bg-[#A66A32] hover:text-white transition duration-500 text-center">
+                    Sell Your Scrap →
+                </a>
+                <a href="tel:08023571753" class="glass-dark text-[#E9E4DA] text-xs uppercase tracking-widest font-bold px-8 py-4 rounded-full hover:bg-white/5 transition duration-500 text-center">
+                    Call Us (0802 357 1753)
+                </a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 pt-12 border-t border-white/10 text-xs tracking-widest uppercase text-[#77746C]">
+            <div>
+                <span class="block text-2xl serif text-[#E9E4DA] mb-1">5.0 ★</span> Google Rating (3 Reviews)
+            </div>
+            <div>
+                <span class="block text-2xl serif text-[#E9E4DA] mb-1">24 Hours</span> Open Daily
+            </div>
+            <div class="hidden md:block">
+                <span class="block text-2xl serif text-[#E9E4DA] mb-1">Mile 12</span> Ikorodu, Lagos
             </div>
         </div>
     </header>
 
-    <!-- Vision / Masonry Section -->
-    <section id="vision" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <!-- TRANSITION TO IVORY SECTION -->
+    <section class="ivory-bg py-32 px-6 rounded-t-[40px] relative z-10 text-[#0B0B0A]">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="serif text-4xl md:text-7xl leading-tight mb-8">
+                "WHAT OTHERS SEE AS WASTE, WE SEE AS VALUE."
+            </h2>
+            <p class="text-lg md:text-xl text-[#77746C] max-w-2xl mx-auto font-light leading-relaxed">
+                Godstime Best Scrap Dealer provides a straightforward way to sell unwanted and recyclable metal in Lagos.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 01 — ABOUT -->
+    <section id="about" class="charcoal-bg py-32 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
-                <span class="text-pink-400 text-xs uppercase tracking-widest font-semibold block mb-4">The Philosophy</span>
-                <h2 class="serif text-4xl md:text-6xl leading-tight mb-8">Crafting digital realms from the heartbeat of West Africa.</h2>
-                <p class="text-neutral-400 font-light leading-relaxed mb-8">
-                    Lagos is not just a city; it is a frequency. Eliana's Space translates the chaotic beauty, vibrant palette, and limitless ambition of this metropolis into breathtaking digital architecture.
+                <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">01 / About</span>
+                <h2 class="serif text-4xl md:text-6xl leading-tight mb-8 text-[#E9E4DA]">BUILT AROUND VALUE.</h2>
+                <p class="text-[#77746C] text-lg font-light leading-relaxed mb-8">
+                    We buy unwanted and recyclable metal and help individuals, businesses and industrial operators turn unused materials into value.
                 </p>
-                <div class="grid grid-cols-2 gap-6 border-t border-white/10 pt-8">
-                    <div>
-                        <h4 class="serif text-3xl text-white mb-1">100%</h4>
-                        <p class="text-xs uppercase tracking-wider text-neutral-500">Original Vision</p>
-                    </div>
-                    <div>
-                        <h4 class="serif text-3xl text-white mb-1">Infinite</h4>
-                        <p class="text-xs uppercase tracking-wider text-neutral-500">Cosmic Depth</p>
-                    </div>
+                <div class="text-xs uppercase tracking-widest text-[#77746C] space-y-1">
+                    <p>IKORODU</p>
+                    <p>LAGOS</p>
+                    <p>NIGERIA</p>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="space-y-4">
-                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop" class="rounded-2xl h-64 w-full object-cover" alt="Art">
-                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=800&auto=format&fit=crop" class="rounded-2xl h-48 w-full object-cover" alt="Vibes">
+            <div class="rounded-3xl overflow-hidden h-[500px] relative group">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Nigerian worker inspecting metal">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 02 — WHAT WE BUY -->
+    <section id="materials" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
+            <div>
+                <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">02 / What We Buy</span>
+                <h2 class="serif text-4xl md:text-6xl text-[#E9E4DA]">METAL HAS VALUE.</h2>
+            </div>
+            <p class="text-[#77746C] text-sm max-w-xs mt-4 md:mt-0 font-light">
+                Comprehensive recycling solutions for ferrous and non-ferrous metals.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Panel 1 -->
+            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
+                <span class="text-xs text-[#A66A32] font-mono block mb-6">01</span>
+                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">COPPER</h3>
+                <p class="text-[#77746C] text-sm mb-8 font-light">High-grade copper wires, pipes, and electrical cables.</p>
+                <div class="h-48 rounded-2xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1615811361523-6bd03c774845?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Copper wire">
                 </div>
-                <div class="space-y-4 pt-12">
-                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop" class="rounded-2xl h-48 w-full object-cover" alt="Abstract">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" class="rounded-2xl h-64 w-full object-cover" alt="Night">
+            </div>
+            <!-- Panel 2 -->
+            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
+                <span class="text-xs text-[#A66A32] font-mono block mb-6">02</span>
+                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">ALUMINIUM</h3>
+                <p class="text-[#77746C] text-sm mb-8 font-light">Sheets, extrusions, engine blocks, and industrial profiles.</p>
+                <div class="h-48 rounded-2xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1558486011-83bce49f1315?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Aluminium scrap">
+                </div>
+            </div>
+            <!-- Panel 3 -->
+            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
+                <span class="text-xs text-[#A66A32] font-mono block mb-6">03</span>
+                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">IRON & STEEL</h3>
+                <p class="text-[#77746C] text-sm mb-8 font-light">Heavy structural steel, iron beams, plates, and machinery.</p>
+                <div class="h-48 rounded-2xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Iron and Steel scrap">
+                </div>
+            </div>
+            <!-- Panel 4 -->
+            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
+                <span class="text-xs text-[#A66A32] font-mono block mb-6">04</span>
+                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">METAL OFFCUTS</h3>
+                <p class="text-[#77746C] text-sm mb-8 font-light">Workshop leftovers, fabrication waste, and trimmings.</p>
+                <div class="h-48 rounded-2xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1533158307587-828f0a76ef46?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Metal offcuts">
+                </div>
+            </div>
+            <!-- Panel 5 -->
+            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
+                <span class="text-xs text-[#A66A32] font-mono block mb-6">05</span>
+                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">INDUSTRIAL SCRAP</h3>
+                <p class="text-[#77746C] text-sm mb-8 font-light">Decommissioned factory equipment and warehouse clearances.</p>
+                <div class="h-48 rounded-2xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Industrial scrap">
+                </div>
+            </div>
+            <!-- Panel 6 -->
+            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
+                <span class="text-xs text-[#A66A32] font-mono block mb-6">06</span>
+                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">OTHER METALS</h3>
+                <p class="text-[#77746C] text-sm mb-8 font-light">Brass, bronze, batteries, and all certified recyclables.</p>
+                <div class="h-48 rounded-2xl overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Other recyclable metals">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery / Sanctuary Grid -->
-    <section id="gallery" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
-        <div class="text-center max-w-2xl mx-auto mb-20">
-            <span class="text-orange-400 text-xs uppercase tracking-widest font-semibold block mb-4">Curated Realities</span>
-            <h2 class="serif text-4xl md:text-6xl">The Sanctuary</h2>
+    <!-- FEATURED COPPER SECTION -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="glass-dark rounded-3xl p-10 md:p-20 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="absolute inset-0 -z-10 opacity-20">
+                <img src="https://images.unsplash.com/photo-1615811361523-6bd03c774845?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Copper macro">
+            </div>
+            <div class="max-w-xl">
+                <span class="text-xs uppercase tracking-widest copper-text font-semibold block mb-4">High Value Yield</span>
+                <h2 class="serif text-4xl md:text-6xl text-[#E9E4DA] mb-6">FROM COPPER TO VALUE.</h2>
+                <p class="text-[#77746C] font-light leading-relaxed">
+                    Have copper wire or clean copper tubing? We offer competitive daily market pricing with immediate, hassle-free payment.
+                </p>
+            </div>
+            <a href="https://wa.me/2348023571753" target="_blank" class="bg-[#A66A32] text-white text-xs uppercase tracking-widest font-bold px-8 py-5 rounded-full hover:bg-[#E9E4DA] hover:text-[#0B0B0A] transition duration-500 whitespace-nowrap">
+                Sell Copper →
+            </a>
         </div>
+    </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass p-6 rounded-3xl group">
-                <div class="h-80 rounded-2xl overflow-hidden mb-6">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Card 1">
+    <!-- SECTION 03 — FOR BUSINESSES -->
+    <section class="charcoal-bg py-32 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+                <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">03 / Industrial Scrap</span>
+                <h2 class="serif text-4xl md:text-6xl text-[#E9E4DA] mb-8">CLEAR THE CLUTTER.</h2>
+                <p class="text-[#77746C] text-lg font-light leading-relaxed mb-8">
+                    Have unwanted metal occupying valuable space in your workshop, warehouse or business? We provide fast clearance and heavy haulage.
+                </p>
+                <div class="grid grid-cols-2 gap-4 text-sm text-[#E9E4DA] font-medium mb-10">
+                    <div class="glass-dark p-4 rounded-xl">Factories</div>
+                    <div class="glass-dark p-4 rounded-xl">Workshops</div>
+                    <div class="glass-dark p-4 rounded-xl">Warehouses</div>
+                    <div class="glass-dark p-4 rounded-xl">Construction Sites</div>
                 </div>
-                <h3 class="serif text-2xl mb-2 text-white">Eko Horizons</h3>
-                <p class="text-neutral-400 text-sm font-light">Where the mainland meets island dreams under an endless velvet sky.</p>
+                <a href="https://wa.me/2348023571753" target="_blank" class="inline-block bg-[#E9E4DA] text-[#0B0B0A] text-xs uppercase tracking-widest font-bold px-8 py-4 rounded-full hover:bg-[#A66A32] hover:text-white transition duration-500">
+                    Contact Godstime →
+                </a>
             </div>
-            <div class="glass p-6 rounded-3xl group">
-                <div class="h-80 rounded-2xl overflow-hidden mb-6">
-                    <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Card 2">
-                </div>
-                <h3 class="serif text-2xl mb-2 text-white">Astral Rhythms</h3>
-                <p class="text-neutral-400 text-sm font-light">Translating the heavy basslines of Afro-fusion into visual cosmic geometry.</p>
-            </div>
-            <div class="glass p-6 rounded-3xl group">
-                <div class="h-80 rounded-2xl overflow-hidden mb-6">
-                    <img src="https://images.unsplash.com/photo-1533158307587-828f0a76ef46?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Card 3">
-                </div>
-                <h3 class="serif text-2xl mb-2 text-white">Nocturnal Gold</h3>
-                <p class="text-neutral-400 text-sm font-light">Finding serenity and infinite creative clarity in the depth of midnight.</p>
+            <div class="rounded-3xl overflow-hidden h-[550px] relative group">
+                <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18f06f7?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Industrial operations Lagos">
             </div>
         </div>
     </section>
 
-    <!-- Footer / Connect -->
-    <footer id="connect" class="py-32 px-6 text-center border-t border-white/5 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-pink-950/20 to-transparent pointer-events-none"></div>
-        <div class="max-w-3xl mx-auto relative z-10">
-            <span class="text-pink-400 text-xs uppercase tracking-widest font-semibold block mb-4">Step Into The Future</span>
-            <h2 class="serif text-5xl md:text-7xl mb-8">Let’s build a dream together.</h2>
-            <a href="mailto:eliana@lagosdreams.space" class="inline-block bg-white text-black text-sm uppercase tracking-widest font-bold px-10 py-5 rounded-full hover:bg-pink-500 hover:text-white transition duration-500 shadow-2xl shadow-pink-500/20">Initiate Contact</a>
-        </div>
-        <div class="max-w-7xl mx-auto mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500">
-            <p>&copy; 2026 Eliana's Space. Lagos, Nigeria. All rights reserved.</p>
-            <div class="flex gap-8 mt-4 md:mt-0 uppercase tracking-widest">
-                <a href="#" class="hover:text-white transition">Instagram</a>
-                <a href="#" class="hover:text-white transition">X / Twitter</a>
-                <a href="#" class="hover:text-white transition">Substack</a>
+    <!-- SECTION 04 — THE PROCESS -->
+    <section id="process" class="py-32 px-6 max-w-7xl mx-auto">
+        <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">04 / How It Works</span>
+        <h2 class="serif text-4xl md:text-6xl text-[#E9E4DA] mb-20">FOUR SIMPLE STEPS.</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="glass-dark p-8 rounded-3xl">
+                <span class="text-xs text-[#A66A32] font-mono block mb-6">01</span>
+                <h3 class="serif text-2xl mb-3 text-[#E9E4DA]">CONTACT</h3>
+                <p class="text-[#77746C] text-sm font-light">Tell us what metal you have and its approximate volume.</p>
             </div>
+            <div class="glass-dark p-8 rounded-3xl">
+                <span class="text-xs text-[#A66A32] font-mono block mb-6">02</span>
+                <h3 class="serif text-2xl mb-3 text-[#E9E4DA]">ASSESS</h3>
+                <p class="text-[#77746C] text-sm font-light">We inspect the material quality, type, and weight accurately.</p>
+            </div>
+            <div class="glass-dark p-8 rounded-3xl">
+                <span class="text-xs text-[#A66A32] font-mono block mb-6">03</span>
+                <h3 class="serif text-2xl mb-3 text-[#E9E4DA]">AGREE</h3>
+                <p class="text-[#77746C] text-sm font-light">Agree on fair, competitive daily market pricing.</p>
+            </div>
+            <div class="glass-dark p-8 rounded-3xl">
+                <span class="text-xs text-[#A66A32] font-mono block mb-6">04</span>
+                <h3 class="serif text-2xl mb-3 text-[#E9E4DA]">SELL</h3>
+                <p class="text-[#77746C] text-sm font-light">Complete the sale and receive instant payment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 05 — WHY GODSTIME -->
+    <section class="charcoal-bg py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">05 / Why Godstime</span>
+            <h2 class="serif text-4xl md:text-6xl text-[#E9E4DA] mb-20">SIMPLE. DIRECT. RELIABLE.</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">Reliable Service</h3></div>
+                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">Straightforward Process</h3></div>
+                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">Competitive Pricing</h3></div>
+                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">Quick Response</h3></div>
+                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">Local Lagos Dealer</h3></div>
+                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">24-Hour Availability</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 06 — TRUST & SECTION 07 — LOCATION -->
+    <section class="py-32 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div>
+            <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">06 / Trust & Reputation</span>
+            <div class="serif text-8xl md:text-9xl text-[#E9E4DA] mb-4">5.0</div>
+            <p class="serif text-2xl text-[#77746C] mb-6">GOOGLE RATING</p>
+            <p class="text-[#E9E4DA] font-light">5.0 / 5 from 3 Verified Google Reviews in Mile 12, Lagos.</p>
+        </div>
+        <div id="contact" class="glass-dark p-10 rounded-3xl">
+            <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">07 / Find Us</span>
+            <h3 class="serif text-3xl text-[#E9E4DA] mb-6">COME FIND US IN LAGOS.</h3>
+            <p class="text-[#77746C] font-light mb-8 leading-relaxed">
+                Market, Mile 12<br>Ikorodu 100247<br>Lagos, Nigeria
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://wa.me/2348023571753" target="_blank" class="bg-[#E9E4DA] text-[#0B0B0A] text-xs uppercase tracking-widest font-bold px-6 py-3 rounded-full hover:bg-[#A66A32] hover:text-white transition">WhatsApp →</a>
+                <a href="tel:08023571753" class="glass-dark text-[#E9E4DA] text-xs uppercase tracking-widest font-bold px-6 py-3 rounded-full hover:bg-white/5 transition">Call 0802 357 1753 →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="relative py-48 px-6 text-center overflow-hidden">
+        <div class="absolute inset-0 -z-10">
+            <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0A] via-[#0B0B0A]/80 to-[#0B0B0A]"></div>
+        </div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">Immediate Action</span>
+            <h2 class="serif text-5xl md:text-8xl text-[#E9E4DA] mb-8">READY TO TURN SCRAP INTO VALUE?</h2>
+            <p class="text-[#77746C] text-lg font-light mb-12">Let's talk about what you have.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/2348023571753" target="_blank" class="bg-[#E9E4DA] text-[#0B0B0A] text-xs uppercase tracking-widest font-bold px-10 py-5 rounded-full hover:bg-[#A66A32] hover:text-white transition duration-500">
+                    WhatsApp Us →
+                </a>
+                <a href="tel:08023571753" class="glass-dark text-[#E9E4DA] text-xs uppercase tracking-widest font-bold px-10 py-5 rounded-full hover:bg-white/5 transition duration-500">
+                    Call 0802 357 1753 →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="charcoal-bg py-20 px-6 border-t border-white/5 text-xs text-[#77746C]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div>
+                <span class="serif text-lg text-[#E9E4DA] font-bold block mb-2">GODSTIME BEST SCRAP DEALER</span>
+                <p>Scrap Metal Buying & Recycling • Market, Mile 12, Ikorodu, Lagos, Nigeria</p>
+                <p class="mt-1">Phone: 0802 357 1753 • Open 24 Hours</p>
+            </div>
+            <div class="flex gap-8 uppercase tracking-widest font-medium">
+                <a href="https://wa.me/2348023571753" class="hover:text-[#E9E4DA] transition">WhatsApp</a>
+                <a href="#about" class="hover:text-[#E9E4DA] transition">About</a>
+                <a href="#materials" class="hover:text-[#E9E4DA] transition">Materials</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 text-[10px] tracking-widest uppercase">
+            © 2026 GODSTIME BEST SCRAP DEALER. ALL RIGHTS RESERVED.
         </div>
     </footer>
 
