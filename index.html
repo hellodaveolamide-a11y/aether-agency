@@ -1,350 +1,754 @@
-<!DOCTYPE html>
+{
+  "name": "elianas-space-luxury",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^1.16.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  }
+}import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+});{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        nearBlack: '#0D0D0C',
+        charcoal: '#1A1918',
+        warmIvory: '#F7F5F0',
+        softCream: '#EFECE6',
+        stoneTaupe: '#8C857B',
+        mutedBronze: '#A68A64',
+        oliveSoft: '#4A4C46',
+      },
+      fontFamily: {
+        sans: ['Plus Jakarta Sans', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+      },
+    },
+  },
+  plugins: [],
+}<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Godstime Best Scrap Dealer // Lagos, Nigeria</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-deep: #0B0B0A;
-            --charcoal: #171715;
-            --ivory: #E9E4DA;
-            --industrial-grey: #77746C;
-            --copper: #A66A32;
-            --forest: #354338;
-        }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-deep); color: var(--ivory); }
-        .serif { font-family: 'Playfair Display', serif; }
-        .ivory-bg { background-color: var(--ivory); color: var(--bg-deep); }
-        .charcoal-bg { background-color: var(--charcoal); }
-        .copper-text { color: var(--copper); }
-        .copper-border { border-color: var(--copper); }
-        .glass-dark { background: rgba(23, 23, 21, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(233, 228, 218, 0.08); }
-        .image-zoom { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .group:hover .image-zoom { transform: scale(1.05); }
-    </style>
-</head>
-<body class="selection:bg-[#A66A32] selection:text-white relative overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eliana’s Space // Luxury Interior Architecture & Design Lagos</title>
+    <meta name="description" content="Eliana's Space is an elite Lagos-based luxury interior architecture, bespoke joinery, and contemporary residential design studio." />
+    
+    <!-- Open Graph / SEO -->
+    <meta property="og:title" content="Eliana’s Space | Luxury Interior Architecture Lagos" />
+    <meta property="og:description" content="Refined contemporary interiors, architectural joinery, and timeless modern living spaces in Lagos, Nigeria." />
+    <meta property="og:type" content="website" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-warmIvory text-nearBlack selection:bg-mutedBronze selection:text-white font-sans antialiased overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0B0B0A]/80 backdrop-blur-xl border-b border-white/5 transition-all duration-500" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <a href="#" class="serif text-xl tracking-widest uppercase font-bold">Godstime</a>
-            
-            <div class="hidden md:flex items-center gap-10 text-xs tracking-widest uppercase text-[#77746C] font-medium">
-                <a href="#about" class="hover:text-[#E9E4DA] transition">About</a>
-                <a href="#materials" class="hover:text-[#E9E4DA] transition">What We Buy</a>
-                <a href="#process" class="hover:text-[#E9E4DA] transition">Process</a>
-                <a href="#contact" class="hover:text-[#E9E4DA] transition">Contact</a>
-            </div>
+@layer utilities {
+  .glass-light {
+    background: rgba(247, 245, 240, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(26, 25, 24, 0.08);
+  }
+  .glass-dark {
+    background: rgba(26, 25, 24, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(247, 245, 240, 0.1);
+  }
+  .image-zoom {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .group:hover .image-zoom {
+    transform: scale(1.04);
+  }
+}
 
-            <a href="https://wa.me/2348023571753" target="_blank" class="bg-[#E9E4DA] text-[#0B0B0A] text-xs uppercase tracking-widest font-semibold px-6 py-3 rounded-full hover:bg-[#A66A32] hover:text-white transition duration-500">
-                Sell Your Scrap →
-            </a>
+html {
+  scroll-behavior: smooth;
+}export const IMAGES = {
+  hero: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1800&auto=format&fit=crop", // High-end contemporary open-plan interior/kitchen
+  about: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop", // Sophisticated minimalist living space
+  serviceKitchen: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1000&auto=format&fit=crop",
+  serviceInterior: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1000&auto=format&fit=crop",
+  serviceJoinery: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1000&auto=format&fit=crop",
+  project1: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1400&auto=format&fit=crop", // The Eko Atlantic Penthouse
+  project2: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1000&auto=format&fit=crop", // Ikoyi Minimalist Villa
+  project3: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1000&auto=format&fit=crop", // Banana Island Residence
+  project4: "https://images.unsplash.com/photo-1617806118233-18e1c0c79af9?q=80&w=1400&auto=format&fit=crop", // Lekki Coastal Sanctuary
+  philosophy: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?q=80&w=1200&auto=format&fit=crop",
+  contactBg: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600&auto=format&fit=crop",
+};export const BRAND_INFO = {
+  name: "ELIANA'S SPACE",
+  tagline: "LUXURY INTERIOR ARCHITECTURE & DESIGN",
+  location: "Lagos, Nigeria",
+  address: "Victoria Island / Ikoyi, Lagos",
+  email: "studio@elianaspace.com",
+  phone: "+234 1 234 5678",
+  instagram: "@elianas.space",
+};
+
+export const TRUST_STATS = [
+  { number: "01", label: "YEARS OF EXCELLENCE", desc: "A decade of defining contemporary African luxury interiors." },
+  { number: "02", label: "CORE SPECIALTIES", desc: "Architectural interiors and bespoke millwork engineering." },
+  { number: "03", label: "DESIGN PHILOSOPHY", desc: "Quiet sophistication, natural materials, uncompromising detail." }
+];
+
+export const SERVICES = [
+  { id: "01", title: "INTERIOR DESIGN", desc: "Comprehensive spatial transformations tailored to discerning residential and commercial clients." },
+  { id: "02", title: "KITCHEN ARCHITECTURE", desc: "Italian-inspired, highly functional luxury culinary spaces featuring natural stone and bespoke joinery." },
+  { id: "03", title: "SPACE PLANNING", desc: "Optimizing flow, light proportions, and spatial harmony across grand architectural footprints." },
+  { id: "04", title: "BESPOKE JOINERY", desc: "Custom millwork, architectural paneling, and cabinetry crafted from rare timbers and warm veneers." },
+  { id: "05", title: "RESIDENTIAL INTERIORS", desc: "Full-scale turnkey interior design and execution for elite villas, penthouses, and estates." },
+  { id: "06", title: "PROJECT MANAGEMENT", desc: "Rigorous oversight from concept through to final white-glove installation." },
+  { id: "07", title: "INTERIOR STYLING", desc: "Curating bespoke furniture, lighting, textiles, and art collections for complete visual cohesion." }
+];
+
+export const PROJECTS = [
+  {
+    id: "01",
+    name: "The Eko Atlantic Penthouse",
+    location: "Victoria Island, Lagos",
+    category: "Residential Architecture",
+    year: "2025",
+    imageKey: "project1",
+    span: "col-span-1 md:col-span-2"
+  },
+  {
+    id: "02",
+    name: "Ikoyi Minimalist Villa",
+    location: "Ikoyi, Lagos",
+    category: "Full Interior Turnkey",
+    year: "2025",
+    imageKey: "project2",
+    span: "col-span-1"
+  },
+  {
+    id: "03",
+    name: "Banana Island Residence",
+    location: "Banana Island, Lagos",
+    category: "Kitchen Architecture & Joinery",
+    year: "2024",
+    imageKey: "project3",
+    span: "col-span-1"
+  },
+  {
+    id: "04",
+    name: "Lekki Coastal Sanctuary",
+    location: "Lekki Phase 1, Lagos",
+    category: "Interior Styling & Spatial Design",
+    year: "2024",
+    imageKey: "project4",
+    span: "col-span-1 md:col-span-2"
+  }
+];
+
+export const PHILOSOPHY = [
+  { step: "01", title: "INTENTIONAL DESIGN", desc: "Every line, shadow, and surface serves a precise purpose in daily living." },
+  { step: "02", title: "TIMELESS MATERIALS", desc: "Sourcing genuine travertine, walnut, brushed brass, and natural stone." },
+  { step: "03", title: "BESPOKE DETAILS", desc: "Custom-built joinery engineered exclusively for each unique architectural envelope." },
+  { step: "04", title: "FUNCTIONAL BEAUTY", desc: "Balancing breathtaking aesthetics with seamless, intuitive spatial practicality." },
+  { step: "05", title: "CULTURAL CONTEXT", desc: "Rooted in modern African luxury, reflecting warmth, heritage, and cosmopolitan elegance." },
+  { step: "06", title: "ATTENTION TO DETAIL", desc: "Uncompromising standards from initial schematic sketch to white-glove handover." }
+];
+
+export const TESTIMONIALS = [
+  {
+    quote: "Eliana's Space redefined what luxury means in Lagos. Their attention to detail, material selection, and spatial mastery transformed our residence into a true architectural masterpiece.",
+    author: "Private Client",
+    location: "Ikoyi, Lagos"
+  }
+];import React, { useState, useEffect } from 'react';
+import { BRAND_INFO } from '../data/content';
+import { Menu, X } from 'lucide-react';
+
+interface NavbarProps {
+  onOpenContact: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${scrolled ? 'bg-warmIvory/90 backdrop-blur-md border-b border-nearBlack/5 py-5 shadow-sm' : 'bg-transparent py-7'}`}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+        <a href="#" className="serif text-xl md:text-2xl tracking-[0.2em] font-medium text-nearBlack uppercase">
+          {BRAND_INFO.name}
+        </a>
+        
+        <div className="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-stoneTaupe font-medium">
+          <a href="#about" className="hover:text-nearBlack transition duration-300">About</a>
+          <a href="#services" className="hover:text-nearBlack transition duration-300">Services</a>
+          <a href="#projects" className="hover:text-nearBlack transition duration-300">Projects</a>
+          <a href="#philosophy" className="hover:text-nearBlack transition duration-300">Philosophy</a>
         </div>
+
+        <div className="hidden md:flex items-center gap-4">
+          <button 
+            onClick={onOpenContact}
+            className="border border-nearBlack/20 text-nearBlack text-xs uppercase tracking-[0.2em] font-medium px-7 py-3 rounded-full hover:bg-nearBlack hover:text-warmIvory transition duration-500"
+          >
+            Start a Conversation →
+          </button>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden text-nearBlack p-2 focus:outline-none"
+        >
+          {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+        </button>
+      </div>
+
+      {/* Mobile Full-Screen Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 bg-warmIvory z-50 flex flex-col justify-center items-center px-6 md:hidden">
+          <button 
+            onClick={() => setMobileMenuOpen(false)}
+            className="absolute top-6 right-6 text-nearBlack p-2"
+          >
+            <X size={30} />
+          </button>
+          <div className="flex flex-col items-center gap-8 text-sm uppercase tracking-[0.25em] font-medium text-nearBlack">
+            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="hover:text-mutedBronze transition">About</a>
+            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="hover:text-mutedBronze transition">Services</a>
+            <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="hover:text-mutedBronze transition">Projects</a>
+            <a href="#philosophy" onClick={() => setMobileMenuOpen(false)} className="hover:text-mutedBronze transition">Philosophy</a>
+            <button 
+              onClick={() => { setMobileMenuOpen(false); onOpenContact(); }}
+              className="bg-nearBlack text-warmIvory text-xs uppercase tracking-[0.2em] font-medium px-8 py-4 rounded-full mt-4"
+            >
+              Start a Conversation →
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
+  );
+};import React from 'react';
+import { BRAND_INFO } from '../data/content';
+import { IMAGES } from '../data/images';
 
-    <!-- HERO -->
-    <header class="relative min-h-screen flex flex-col justify-between pt-32 pb-16 px-6 max-w-7xl mx-auto">
-        <!-- Background Cinematic Image with Grain -->
-        <div class="absolute inset-0 -z-10 overflow-hidden rounded-3xl mt-24 mb-6">
-            <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover opacity-40 contrast-125" alt="Industrial Scrap Yard Lagos">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0A] via-[#0B0B0A]/50 to-transparent"></div>
+interface HeroProps {
+  onOpenContact: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
+  return (
+    <header className="relative pt-36 md:pt-44 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="text-center max-w-4xl mx-auto mb-16">
+        <span className="text-stoneTaupe text-[11px] uppercase tracking-[0.3em] font-medium block mb-6">
+          {BRAND_INFO.location} • {BRAND_INFO.tagline}
+        </span>
+        <h1 className="serif text-5xl md:text-8xl lg:text-9xl tracking-tight text-nearBlack leading-[1.02] mb-8 font-normal">
+          Quiet <span className="italic font-light text-mutedBronze">Luxury</span> in Living Spaces.
+        </h1>
+        <p className="text-stoneTaupe text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-12">
+          Architectural interiors, bespoke joinery, and bespoke culinary spaces tailored for modern African luxury living.
+        </p>
+        <button 
+          onClick={onOpenContact}
+          className="bg-nearBlack text-warmIvory text-xs uppercase tracking-[0.25em] font-medium px-9 py-4 rounded-full hover:bg-mutedBronze transition duration-500 shadow-sm"
+        >
+          Explore Consultation →
+        </button>
+      </div>
+
+      {/* Cinematic Hero Image */}
+      <div className="w-full h-[500px] md:h-[750px] rounded-[32px] overflow-hidden relative group shadow-lg">
+        <img 
+          src={IMAGES.hero} 
+          alt="Luxury interior design by Eliana's Space" 
+          className="w-full h-full object-cover image-zoom"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-nearBlack/40 via-transparent to-transparent"></div>
+        <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end text-white/90 text-xs tracking-[0.2em] uppercase font-light">
+          <span>Featured Residence</span>
+          <span>Ikoyi, Lagos</span>
         </div>
-
-        <div>
-            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-dark text-xs tracking-widest uppercase text-[#77746C] font-medium mb-8">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#A66A32] animate-ping"></span> Lagos, Nigeria • Scrap Metal Buying & Recycling
-            </div>
-            
-            <h1 class="serif text-6xl md:text-9xl tracking-tight max-w-5xl leading-[0.95] mb-12">
-                TURN<br><span class="italic font-normal copper-text">SCRAP</span><br>INTO VALUE.
-            </h1>
-
-            <p class="text-lg md:text-xl text-[#77746C] max-w-xl font-light leading-relaxed mb-12">
-                We buy recyclable metal from individuals, businesses and industrial operators across Lagos.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="https://wa.me/2348023571753" target="_blank" class="bg-[#E9E4DA] text-[#0B0B0A] text-xs uppercase tracking-widest font-bold px-8 py-4 rounded-full hover:bg-[#A66A32] hover:text-white transition duration-500 text-center">
-                    Sell Your Scrap →
-                </a>
-                <a href="tel:08023571753" class="glass-dark text-[#E9E4DA] text-xs uppercase tracking-widest font-bold px-8 py-4 rounded-full hover:bg-white/5 transition duration-500 text-center">
-                    Call Us (0802 357 1753)
-                </a>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 pt-12 border-t border-white/10 text-xs tracking-widest uppercase text-[#77746C]">
-            <div>
-                <span class="block text-2xl serif text-[#E9E4DA] mb-1">5.0 ★</span> Google Rating (3 Reviews)
-            </div>
-            <div>
-                <span class="block text-2xl serif text-[#E9E4DA] mb-1">24 Hours</span> Open Daily
-            </div>
-            <div class="hidden md:block">
-                <span class="block text-2xl serif text-[#E9E4DA] mb-1">Mile 12</span> Ikorodu, Lagos
-            </div>
-        </div>
+      </div>
     </header>
+  );
+};import React from 'react';
+import { TRUST_STATS } from '../data/content';
 
-    <!-- TRANSITION TO IVORY SECTION -->
-    <section class="ivory-bg py-32 px-6 rounded-t-[40px] relative z-10 text-[#0B0B0A]">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="serif text-4xl md:text-7xl leading-tight mb-8">
-                "WHAT OTHERS SEE AS WASTE, WE SEE AS VALUE."
-            </h2>
-            <p class="text-lg md:text-xl text-[#77746C] max-w-2xl mx-auto font-light leading-relaxed">
-                Godstime Best Scrap Dealer provides a straightforward way to sell unwanted and recyclable metal in Lagos.
-            </p>
-        </div>
+export const TrustStats: React.FC = () => {
+  return (
+    <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-nearBlack/5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        {TRUST_STATS.map((stat) => (
+          <div key={stat.number} className="space-y-3">
+            <span className="text-mutedBronze font-mono text-xs tracking-widest">{stat.number}</span>
+            <h3 className="serif text-xl tracking-wide text-nearBlack font-medium">{stat.label}</h3>
+            <p className="text-stoneTaupe text-sm font-light leading-relaxed">{stat.desc}</p>
+          </div>
+        ))}
+      </div>
     </section>
+  );
+};import React from 'react';
+import { IMAGES } from '../data/images';
 
-    <!-- SECTION 01 — ABOUT -->
-    <section id="about" class="charcoal-bg py-32 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div>
-                <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">01 / About</span>
-                <h2 class="serif text-4xl md:text-6xl leading-tight mb-8 text-[#E9E4DA]">BUILT AROUND VALUE.</h2>
-                <p class="text-[#77746C] text-lg font-light leading-relaxed mb-8">
-                    We buy unwanted and recyclable metal and help individuals, businesses and industrial operators turn unused materials into value.
-                </p>
-                <div class="text-xs uppercase tracking-widest text-[#77746C] space-y-1">
-                    <p>IKORODU</p>
-                    <p>LAGOS</p>
-                    <p>NIGERIA</p>
-                </div>
-            </div>
-            <div class="rounded-3xl overflow-hidden h-[500px] relative group">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Nigerian worker inspecting metal">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 02 — WHAT WE BUY -->
-    <section id="materials" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
-            <div>
-                <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">02 / What We Buy</span>
-                <h2 class="serif text-4xl md:text-6xl text-[#E9E4DA]">METAL HAS VALUE.</h2>
-            </div>
-            <p class="text-[#77746C] text-sm max-w-xs mt-4 md:mt-0 font-light">
-                Comprehensive recycling solutions for ferrous and non-ferrous metals.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Panel 1 -->
-            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
-                <span class="text-xs text-[#A66A32] font-mono block mb-6">01</span>
-                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">COPPER</h3>
-                <p class="text-[#77746C] text-sm mb-8 font-light">High-grade copper wires, pipes, and electrical cables.</p>
-                <div class="h-48 rounded-2xl overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1615811361523-6bd03c774845?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Copper wire">
-                </div>
-            </div>
-            <!-- Panel 2 -->
-            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
-                <span class="text-xs text-[#A66A32] font-mono block mb-6">02</span>
-                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">ALUMINIUM</h3>
-                <p class="text-[#77746C] text-sm mb-8 font-light">Sheets, extrusions, engine blocks, and industrial profiles.</p>
-                <div class="h-48 rounded-2xl overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1558486011-83bce49f1315?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Aluminium scrap">
-                </div>
-            </div>
-            <!-- Panel 3 -->
-            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
-                <span class="text-xs text-[#A66A32] font-mono block mb-6">03</span>
-                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">IRON & STEEL</h3>
-                <p class="text-[#77746C] text-sm mb-8 font-light">Heavy structural steel, iron beams, plates, and machinery.</p>
-                <div class="h-48 rounded-2xl overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Iron and Steel scrap">
-                </div>
-            </div>
-            <!-- Panel 4 -->
-            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
-                <span class="text-xs text-[#A66A32] font-mono block mb-6">04</span>
-                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">METAL OFFCUTS</h3>
-                <p class="text-[#77746C] text-sm mb-8 font-light">Workshop leftovers, fabrication waste, and trimmings.</p>
-                <div class="h-48 rounded-2xl overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1533158307587-828f0a76ef46?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Metal offcuts">
-                </div>
-            </div>
-            <!-- Panel 5 -->
-            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
-                <span class="text-xs text-[#A66A32] font-mono block mb-6">05</span>
-                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">INDUSTRIAL SCRAP</h3>
-                <p class="text-[#77746C] text-sm mb-8 font-light">Decommissioned factory equipment and warehouse clearances.</p>
-                <div class="h-48 rounded-2xl overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Industrial scrap">
-                </div>
-            </div>
-            <!-- Panel 6 -->
-            <div class="glass-dark p-8 rounded-3xl group cursor-pointer overflow-hidden relative">
-                <span class="text-xs text-[#A66A32] font-mono block mb-6">06</span>
-                <h3 class="serif text-3xl mb-4 text-[#E9E4DA]">OTHER METALS</h3>
-                <p class="text-[#77746C] text-sm mb-8 font-light">Brass, bronze, batteries, and all certified recyclables.</p>
-                <div class="h-48 rounded-2xl overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Other recyclable metals">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURED COPPER SECTION -->
-    <section class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="glass-dark rounded-3xl p-10 md:p-20 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="absolute inset-0 -z-10 opacity-20">
-                <img src="https://images.unsplash.com/photo-1615811361523-6bd03c774845?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Copper macro">
-            </div>
-            <div class="max-w-xl">
-                <span class="text-xs uppercase tracking-widest copper-text font-semibold block mb-4">High Value Yield</span>
-                <h2 class="serif text-4xl md:text-6xl text-[#E9E4DA] mb-6">FROM COPPER TO VALUE.</h2>
-                <p class="text-[#77746C] font-light leading-relaxed">
-                    Have copper wire or clean copper tubing? We offer competitive daily market pricing with immediate, hassle-free payment.
-                </p>
-            </div>
-            <a href="https://wa.me/2348023571753" target="_blank" class="bg-[#A66A32] text-white text-xs uppercase tracking-widest font-bold px-8 py-5 rounded-full hover:bg-[#E9E4DA] hover:text-[#0B0B0A] transition duration-500 whitespace-nowrap">
-                Sell Copper →
-            </a>
-        </div>
-    </section>
-
-    <!-- SECTION 03 — FOR BUSINESSES -->
-    <section class="charcoal-bg py-32 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div>
-                <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">03 / Industrial Scrap</span>
-                <h2 class="serif text-4xl md:text-6xl text-[#E9E4DA] mb-8">CLEAR THE CLUTTER.</h2>
-                <p class="text-[#77746C] text-lg font-light leading-relaxed mb-8">
-                    Have unwanted metal occupying valuable space in your workshop, warehouse or business? We provide fast clearance and heavy haulage.
-                </p>
-                <div class="grid grid-cols-2 gap-4 text-sm text-[#E9E4DA] font-medium mb-10">
-                    <div class="glass-dark p-4 rounded-xl">Factories</div>
-                    <div class="glass-dark p-4 rounded-xl">Workshops</div>
-                    <div class="glass-dark p-4 rounded-xl">Warehouses</div>
-                    <div class="glass-dark p-4 rounded-xl">Construction Sites</div>
-                </div>
-                <a href="https://wa.me/2348023571753" target="_blank" class="inline-block bg-[#E9E4DA] text-[#0B0B0A] text-xs uppercase tracking-widest font-bold px-8 py-4 rounded-full hover:bg-[#A66A32] hover:text-white transition duration-500">
-                    Contact Godstime →
-                </a>
-            </div>
-            <div class="rounded-3xl overflow-hidden h-[550px] relative group">
-                <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18f06f7?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover image-zoom" alt="Industrial operations Lagos">
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 04 — THE PROCESS -->
-    <section id="process" class="py-32 px-6 max-w-7xl mx-auto">
-        <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">04 / How It Works</span>
-        <h2 class="serif text-4xl md:text-6xl text-[#E9E4DA] mb-20">FOUR SIMPLE STEPS.</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="glass-dark p-8 rounded-3xl">
-                <span class="text-xs text-[#A66A32] font-mono block mb-6">01</span>
-                <h3 class="serif text-2xl mb-3 text-[#E9E4DA]">CONTACT</h3>
-                <p class="text-[#77746C] text-sm font-light">Tell us what metal you have and its approximate volume.</p>
-            </div>
-            <div class="glass-dark p-8 rounded-3xl">
-                <span class="text-xs text-[#A66A32] font-mono block mb-6">02</span>
-                <h3 class="serif text-2xl mb-3 text-[#E9E4DA]">ASSESS</h3>
-                <p class="text-[#77746C] text-sm font-light">We inspect the material quality, type, and weight accurately.</p>
-            </div>
-            <div class="glass-dark p-8 rounded-3xl">
-                <span class="text-xs text-[#A66A32] font-mono block mb-6">03</span>
-                <h3 class="serif text-2xl mb-3 text-[#E9E4DA]">AGREE</h3>
-                <p class="text-[#77746C] text-sm font-light">Agree on fair, competitive daily market pricing.</p>
-            </div>
-            <div class="glass-dark p-8 rounded-3xl">
-                <span class="text-xs text-[#A66A32] font-mono block mb-6">04</span>
-                <h3 class="serif text-2xl mb-3 text-[#E9E4DA]">SELL</h3>
-                <p class="text-[#77746C] text-sm font-light">Complete the sale and receive instant payment.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 05 — WHY GODSTIME -->
-    <section class="charcoal-bg py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">05 / Why Godstime</span>
-            <h2 class="serif text-4xl md:text-6xl text-[#E9E4DA] mb-20">SIMPLE. DIRECT. RELIABLE.</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">Reliable Service</h3></div>
-                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">Straightforward Process</h3></div>
-                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">Competitive Pricing</h3></div>
-                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">Quick Response</h3></div>
-                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">Local Lagos Dealer</h3></div>
-                <div class="glass-dark p-8 rounded-2xl"><h3 class="serif text-xl text-[#E9E4DA]">24-Hour Availability</h3></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 06 — TRUST & SECTION 07 — LOCATION -->
-    <section class="py-32 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+export const About: React.FC = () => {
+  return (
+    <section id="about" className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
         <div>
-            <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">06 / Trust & Reputation</span>
-            <div class="serif text-8xl md:text-9xl text-[#E9E4DA] mb-4">5.0</div>
-            <p class="serif text-2xl text-[#77746C] mb-6">GOOGLE RATING</p>
-            <p class="text-[#E9E4DA] font-light">5.0 / 5 from 3 Verified Google Reviews in Mile 12, Lagos.</p>
+          <span className="text-stoneTaupe text-[11px] uppercase tracking-[0.3em] font-semibold block mb-6">01 / About Studio</span>
+          <h2 className="serif text-4xl md:text-6xl text-nearBlack leading-[1.1] mb-8 font-normal">
+            Designed for stillness, crafted for permanence.
+          </h2>
+          <p className="text-stoneTaupe text-base font-light leading-relaxed mb-8">
+            Eliana's Space is an elite Lagos-based interior architecture practice. We believe that true luxury is found in proportion, tactile natural materials, warm atmospheric lighting, and unhurried craftsmanship.
+          </p>
+          <p className="text-stoneTaupe text-base font-light leading-relaxed">
+            From monumental Italian kitchen islands in Ikoyi penthouses to serene private residences across West Africa, we sculpt environments that elevate daily rituals into art.
+          </p>
         </div>
-        <div id="contact" class="glass-dark p-10 rounded-3xl">
-            <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">07 / Find Us</span>
-            <h3 class="serif text-3xl text-[#E9E4DA] mb-6">COME FIND US IN LAGOS.</h3>
-            <p class="text-[#77746C] font-light mb-8 leading-relaxed">
-                Market, Mile 12<br>Ikorodu 100247<br>Lagos, Nigeria
+        <div className="rounded-[28px] overflow-hidden h-[550px] relative group shadow-md">
+          <img 
+            src={IMAGES.about} 
+            alt="Sophisticated minimalist living space by Eliana's Space" 
+            className="w-full h-full object-cover image-zoom"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};import React, { useState } from 'react';
+import { SERVICES } from '../data/content';
+import { IMAGES } from '../data/images';
+
+export const Services: React.FC = () => {
+  const [hoveredService, setHoveredService] = useState<number | null>(0);
+
+  const getServiceImage = (index: number) => {
+    if (index === 1) return IMAGES.serviceKitchen;
+    if (index === 3) return IMAGES.serviceJoinery;
+    return IMAGES.serviceInterior;
+  };
+
+  return (
+    <section id="services" className="py-32 bg-softCream/60 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
+          <div>
+            <span className="text-stoneTaupe text-[11px] uppercase tracking-[0.3em] font-semibold block mb-4">02 / Expertise</span>
+            <h2 className="serif text-4xl md:text-6xl text-nearBlack font-normal">Disciplines of Space</h2>
+          </div>
+          <p className="text-stoneTaupe text-sm max-w-xs mt-6 md:mt-0 font-light leading-relaxed">
+            Comprehensive architectural interior solutions executed with uncompromising precision.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Service List */}
+          <div className="lg:col-span-7 divide-y divide-nearBlack/10 border-y border-nearBlack/10">
+            {SERVICES.map((service, idx) => (
+              <div 
+                key={service.id}
+                onMouseEnter={() => setHoveredService(idx)}
+                className="py-8 group cursor-pointer transition-all duration-300"
+              >
+                <div className="flex justify-between items-baseline mb-2">
+                  <div className="flex items-center gap-6">
+                    <span className="text-xs text-mutedBronze font-mono">{service.id}</span>
+                    <h3 className="serif text-2xl md:text-3xl text-nearBlack group-hover:translate-x-3 transition-transform duration-500 font-normal">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <span className="text-xs tracking-widest uppercase text-stoneTaupe opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Explore →
+                  </span>
+                </div>
+                <p className="text-stoneTaupe text-sm font-light pl-11 max-w-xl">
+                  {service.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Dynamic Image Preview */}
+          <div className="lg:col-span-5 hidden lg:block">
+            <div className="rounded-[28px] overflow-hidden h-[500px] relative shadow-lg">
+              <img 
+                src={getServiceImage(hoveredService ?? 0)} 
+                alt="Service preview" 
+                className="w-full h-full object-cover transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-nearBlack/10"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};import React from 'react';
+
+interface EditorialCTAProps {
+  onOpenContact: () => void;
+}
+
+export const EditorialCTA: React.FC<EditorialCTAProps> = ({ onOpenContact }) => {
+  return (
+    <section className="py-36 px-6 md:px-12 max-w-6xl mx-auto text-center">
+      <span className="text-stoneTaupe text-[11px] uppercase tracking-[0.3em] font-medium block mb-6">Commission a Project</span>
+      <h2 className="serif text-5xl md:text-8xl tracking-tight text-nearBlack leading-[1.05] mb-12 font-normal">
+        Your space should feel <span class="italic font-light text-mutedBronze">uniquely yours.</span>
+      </h2>
+      <button 
+        onClick={onOpenContact}
+        className="bg-nearBlack text-warmIvory text-xs uppercase tracking-[0.25em] font-medium px-10 py-5 rounded-full hover:bg-mutedBronze transition duration-500 shadow-sm"
+      >
+        Start a Conversation →
+      </button>
+    </section>
+  );
+};import React from 'react';
+import { PROJECTS } from '../data/content';
+import { IMAGES } from '../data/images';
+
+export const Projects: React.FC = () => {
+  const getProjectImage = (key: string) => {
+    return (IMAGES as Record<string, string>)[key] || IMAGES.project1;
+  };
+
+  return (
+    <section id="projects" className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
+        <div>
+          <span className="text-stoneTaupe text-[11px] uppercase tracking-[0.3em] font-semibold block mb-4">03 / Selected Works</span>
+          <h2 className="serif text-4xl md:text-6xl text-nearBlack font-normal">Architectural Portfolios</h2>
+        </div>
+        <span className="text-stoneTaupe text-xs tracking-widest uppercase mt-4 md:mt-0">2024 — 2026 Edition</span>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        {PROJECTS.map((project) => (
+          <div key={project.id} className={`${project.span} group cursor-pointer space-y-4`}>
+            <div className="rounded-[28px] overflow-hidden h-[420px] md:h-[520px] relative shadow-md">
+              <img 
+                src={getProjectImage(project.imageKey)} 
+                alt={project.name} 
+                className="w-full h-full object-cover image-zoom"
+              />
+              <div className="absolute top-6 right-6 glass-dark text-warmIvory text-[11px] uppercase tracking-widest px-4 py-2 rounded-full">
+                {project.year}
+              </div>
+            </div>
+            <div className="flex justify-between items-baseline px-2">
+              <div>
+                <h3 className="serif text-2xl text-nearBlack font-normal">{project.name}</h3>
+                <p className="text-stoneTaupe text-xs tracking-wider uppercase mt-1">{project.location} • {project.category}</p>
+              </div>
+              <span className="text-xs uppercase tracking-widest text-nearBlack font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                View Case →
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};import React from 'react';
+import { PHILOSOPHY } from '../data/content';
+import { IMAGES } from '../data/images';
+
+export const Philosophy: React.FC = () => {
+  return (
+    <section id="philosophy" className="py-32 bg-nearBlack text-warmIvory px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-24">
+          <div className="lg:col-span-6">
+            <span className="text-mutedBronze text-[11px] uppercase tracking-[0.3em] font-semibold block mb-4">04 / Tenets</span>
+            <h2 className="serif text-4xl md:text-7xl font-normal leading-tight">The Architecture of Intention.</h2>
+          </div>
+          <div className="lg:col-span-6">
+            <p className="text-stoneTaupe text-base font-light leading-relaxed">
+              Our studio operates on principles rooted in timeless craftsmanship, modern African cosmopolitanism, and uncompromising material honesty.
             </p>
-            <div class="flex flex-wrap gap-4">
-                <a href="https://wa.me/2348023571753" target="_blank" class="bg-[#E9E4DA] text-[#0B0B0A] text-xs uppercase tracking-widest font-bold px-6 py-3 rounded-full hover:bg-[#A66A32] hover:text-white transition">WhatsApp →</a>
-                <a href="tel:08023571753" class="glass-dark text-[#E9E4DA] text-xs uppercase tracking-widest font-bold px-6 py-3 rounded-full hover:bg-white/5 transition">Call 0802 357 1753 →</a>
-            </div>
+          </div>
         </div>
-    </section>
 
-    <!-- FINAL CTA -->
-    <section class="relative py-48 px-6 text-center overflow-hidden">
-        <div class="absolute inset-0 -z-10">
-            <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover opacity-30">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0B0A] via-[#0B0B0A]/80 to-[#0B0B0A]"></div>
-        </div>
-        <div class="max-w-4xl mx-auto relative z-10">
-            <span class="text-[#A66A32] text-xs uppercase tracking-widest font-semibold block mb-4">Immediate Action</span>
-            <h2 class="serif text-5xl md:text-8xl text-[#E9E4DA] mb-8">READY TO TURN SCRAP INTO VALUE?</h2>
-            <p class="text-[#77746C] text-lg font-light mb-12">Let's talk about what you have.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://wa.me/2348023571753" target="_blank" class="bg-[#E9E4DA] text-[#0B0B0A] text-xs uppercase tracking-widest font-bold px-10 py-5 rounded-full hover:bg-[#A66A32] hover:text-white transition duration-500">
-                    WhatsApp Us →
-                </a>
-                <a href="tel:08023571753" class="glass-dark text-[#E9E4DA] text-xs uppercase tracking-widest font-bold px-10 py-5 rounded-full hover:bg-white/5 transition duration-500">
-                    Call 0802 357 1753 →
-                </a>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {PHILOSOPHY.map((item) => (
+            <div key={item.step} className="glass-dark p-10 rounded-[28px] space-y-4">
+              <span className="text-mutedBronze font-mono text-xs tracking-widest">{item.step}</span>
+              <h3 className="serif text-2xl font-normal text-warmIvory">{item.title}</h3>
+              <p className="text-stoneTaupe text-sm font-light leading-relaxed">{item.desc}</p>
             </div>
+          ))}
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="charcoal-bg py-20 px-6 border-t border-white/5 text-xs text-[#77746C]">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div>
-                <span class="serif text-lg text-[#E9E4DA] font-bold block mb-2">GODSTIME BEST SCRAP DEALER</span>
-                <p>Scrap Metal Buying & Recycling • Market, Mile 12, Ikorodu, Lagos, Nigeria</p>
-                <p class="mt-1">Phone: 0802 357 1753 • Open 24 Hours</p>
-            </div>
-            <div class="flex gap-8 uppercase tracking-widest font-medium">
-                <a href="https://wa.me/2348023571753" class="hover:text-[#E9E4DA] transition">WhatsApp</a>
-                <a href="#about" class="hover:text-[#E9E4DA] transition">About</a>
-                <a href="#materials" class="hover:text-[#E9E4DA] transition">Materials</a>
-            </div>
+        {/* Cinematic Philosophy Image Banner */}
+        <div className="mt-24 rounded-[32px] overflow-hidden h-[450px] relative shadow-2xl">
+          <img src={IMAGES.philosophy} alt="Material detail" className="w-full h-full object-cover opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-nearBlack/60 via-transparent to-transparent flex items-end p-10">
+            <span className="serif text-xl italic text-warmIvory/90 font-light">"Materials speak when proportions are correct."</span>
+          </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 text-[10px] tracking-widest uppercase">
-            © 2026 GODSTIME BEST SCRAP DEALER. ALL RIGHTS RESERVED.
+      </div>
+    </section>
+  );
+};import React from 'react';
+import { TESTIMONIALS } from '../data/content';
+
+export const Testimonials: React.FC = () => {
+  return (
+    <section className="py-36 px-6 md:px-12 max-w-5xl mx-auto text-center">
+      <span className="text-stoneTaupe text-[11px] uppercase tracking-[0.3em] font-semibold block mb-6">05 / Endorsements</span>
+      {TESTIMONIALS.map((t, idx) => (
+        <div key={idx} className="space-y-8">
+          <blockquote className="serif text-2xl md:text-4xl text-nearBlack font-normal leading-relaxed italic">
+            "{t.quote}"
+          </blockquote>
+          <div>
+            <span className="text-xs uppercase tracking-[0.25em] font-medium text-nearBlack block">{t.author}</span>
+            <span className="text-stoneTaupe text-xs uppercase tracking-widest mt-1 block">{t.location}</span>
+          </div>
         </div>
+      ))}
+    </section>
+  );
+};import React, { useState } from 'react';
+import { BRAND_INFO } from '../data/content';
+import { X } from 'lucide-react';
+
+interface ContactModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
+  const [submitted, setSubmitted] = useState(false);
+
+  if (!isOpen) return null;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-nearBlack/70 backdrop-blur-md">
+      <div className="bg-warmIvory w-full max-w-2xl rounded-[32px] p-8 md:p-14 relative shadow-2xl overflow-y-auto max-h-[90vh]">
+        <button 
+          onClick={() => { setSubmitted(false); onClose(); }} 
+          className="absolute top-6 right-6 text-nearBlack p-2 hover:opacity-60 transition"
+        >
+          <X size={24} />
+        </button>
+
+        {!submitted ? (
+          <div>
+            <span className="text-stoneTaupe text-[11px] uppercase tracking-[0.3em] font-semibold block mb-3">Inquiries</span>
+            <h2 className="serif text-3xl md:text-5xl text-nearBlack font-normal mb-4">Start a Conversation.</h2>
+            <p className="text-stoneTaupe text-sm font-light mb-8">
+              Share your vision with us. Our studio will respond within 24 hours.
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-stoneTaupe mb-2 font-medium">Your Name</label>
+                  <input required type="text" className="w-full bg-softCream border border-nearBlack/10 rounded-xl px-4 py-3.5 text-nearBlack text-sm focus:outline-none focus:border-mutedBronze" placeholder="Adeola Johnson" />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-stoneTaupe mb-2 font-medium">Email Address</label>
+                  <input required type="email" className="w-full bg-softCream border border-nearBlack/10 rounded-xl px-4 py-3.5 text-nearBlack text-sm focus:outline-none focus:border-mutedBronze" placeholder="adeola@example.com" />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-stoneTaupe mb-2 font-medium">Phone Number</label>
+                  <input type="tel" className="w-full bg-softCream border border-nearBlack/10 rounded-xl px-4 py-3.5 text-nearBlack text-sm focus:outline-none focus:border-mutedBronze" placeholder="+234 ..." />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-stoneTaupe mb-2 font-medium">Project Scope</label>
+                  <select className="w-full bg-softCream border border-nearBlack/10 rounded-xl px-4 py-3.5 text-nearBlack text-sm focus:outline-none focus:border-mutedBronze">
+                    <option>Full Interior Architecture</option>
+                    <option>Kitchen Architecture</option>
+                    <option>Bespoke Joinery</option>
+                    <option>Residential Turnkey</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs uppercase tracking-widest text-stoneTaupe mb-2 font-medium">Project Details & Location</label>
+                <textarea rows={4} className="w-full bg-softCream border border-nearBlack/10 rounded-xl px-4 py-3.5 text-nearBlack text-sm focus:outline-none focus:border-mutedBronze" placeholder="Tell us about your property in Lagos or beyond..."></textarea>
+              </div>
+              <button type="submit" className="w-full bg-nearBlack text-warmIvory text-xs uppercase tracking-[0.25em] font-medium py-4 rounded-full hover:bg-mutedBronze transition duration-500">
+                Submit Enquiry →
+              </button>
+            </form>
+          </div>
+        ) : (
+          <div className="py-16 text-center space-y-4">
+            <h3 className="serif text-3xl text-nearBlack">Enquiry Received.</h3>
+            <p className="text-stoneTaupe text-sm font-light max-w-md mx-auto">
+              Thank you. Principal architects from Eliana's Space will review your submission and contact you shortly.
+            </p>
+            <button 
+              onClick={() => { setSubmitted(false); onClose(); }} 
+              className="mt-6 bg-nearBlack text-warmIvory text-xs uppercase tracking-widest px-8 py-3 rounded-full"
+            >
+              Close Window
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};import React from 'react';
+import { BRAND_INFO } from '../data/content';
+
+interface FooterProps {
+  onOpenContact: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
+  return (
+    <footer className="bg-nearBlack text-warmIvory pt-28 pb-16 px-6 md:px-12 border-t border-white/5">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
+        <div className="md:col-span-5 space-y-6">
+          <span className="serif text-2xl tracking-[0.2em] uppercase font-medium">{BRAND_INFO.name}</span>
+          <p className="text-stoneTaupe text-sm font-light max-w-sm leading-relaxed">
+            {BRAND_INFO.tagline} based in {BRAND_INFO.location}. Sculpting environments of quiet luxury and enduring architectural integrity.
+          </p>
+          <button 
+            onClick={onOpenContact}
+            className="text-xs uppercase tracking-[0.2em] text-mutedBronze hover:text-warmIvory transition block font-medium"
+          >
+            Start a Conversation →
+          </button>
+        </div>
+
+        <div className="md:col-span-3 space-y-4 text-xs tracking-[0.2em] uppercase text-stoneTaupe font-medium">
+          <span className="block text-warmIvory mb-6 font-semibold">Studio Directory</span>
+          <a href="#about" className="block hover:text-warmIvory transition">About Studio</a>
+          <a href="#services" className="block hover:text-warmIvory transition">Expertise</a>
+          <a href="#projects" className="block hover:text-warmIvory transition">Selected Works</a>
+          <a href="#philosophy" className="block hover:text-warmIvory transition">Philosophy</a>
+        </div>
+
+        <div className="md:col-span-4 space-y-4 text-xs tracking-wider text-stoneTaupe font-light">
+          <span className="block text-warmIvory uppercase tracking-[0.2em] mb-6 font-semibold">Headquarters</span>
+          <p>{BRAND_INFO.address}</p>
+          <p>{BRAND_INFO.email}</p>
+          <p>{BRAND_INFO.phone}</p>
+          <p className="pt-4 text-mutedBronze">{BRAND_INFO.instagram}</p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[11px] tracking-widest uppercase text-stoneTaupe">
+        <p>&copy; {new Date().getFullYear()} {BRAND_INFO.name}. All rights reserved.</p>
+        <p className="mt-4 md:mt-0">Designed with Editorial Precision</p>
+      </div>
     </footer>
+  );
+};import React, { useState } from 'react';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { TrustStats } from './components/TrustStats';
+import { About } from './components/About';
+import { Services } from './components/Services';
+import { EditorialCTA } from './components/EditorialCTA';
+import { Projects } from './components/Projects';
+import { Philosophy } from './components/Philosophy';
+import { Testimonials } from './components/Testimonials';
+import { ContactModal } from './components/ContactModal';
+import { Footer } from './components/Footer';
 
-</body>
-</html>
+export function App() {
+  const [contactOpen, setContactOpen] = useState(false);
+
+  return (
+    <div className="bg-warmIvory text-nearBlack min-h-screen">
+      <Navbar onOpenContact={() => setContactOpen(true)} />
+      <Hero onOpenContact={() => setContactOpen(true)} />
+      <TrustStats />
+      <About />
+      <Services />
+      <EditorialCTA onOpenContact={() => setContactOpen(true)} />
+      <Projects />
+      <Philosophy />
+      <Testimonials />
+      <EditorialCTA onOpenContact={() => setContactOpen(true)} />
+      <Footer onOpenContact={() => setContactOpen(true)} />
+      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
+    </div>
+  );
+}
+
+export default App;import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
